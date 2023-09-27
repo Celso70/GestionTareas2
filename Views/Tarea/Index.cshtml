@@ -1,0 +1,77 @@
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@*--------------------------------------------------------------------------------------------*@
+@*-----------------------------------------MODAL----------------------------------------------*@
+@*--------------------------------------------------------------------------------------------*@
+
+<div class="modal fade" id="TareaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <input id="TareaHiddenInputID" value="0" disabled/>
+        <h5 class="modal-title" id="TareaH1">Agregar Tarea</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <div id="TareaForm" class="form-group">
+            <label class="control-label">Fecha</label>
+
+            <input type="datetime" class="form-control" id="TareaFecha" />
+
+            <label class="control-label">Descripcion</label>
+
+            <input type="text" class="form-control" id="TareaDescripcion" autocomplete="off" />
+
+            <label class="control-label">Prioridad</label>
+             <select id="TareaPrioridad">
+                <option value="1">Alta</option>
+                <option value="2">Media</option>
+                <option value="3">Baja</option>
+             </select>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button id="BotonTareaGuardar" type="button" onclick="TareaGuardar()" class="btn btn-primary">Crear</button>
+      </div>
+    </div>
+  </div>
+</div>
+@*--------------------------------------------------------------------------------------------*@
+@*-----------------------------------------TABLA----------------------------------------------*@
+@*--------------------------------------------------------------------------------------------*@
+
+<h1>Tareas</h1>
+<!--ABRIR-MODAL-->
+      <div class="mb-2">
+        <button type="button" onclick="AbrirModal()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TareaModal">
+            Nuevo
+        </button>
+      </div>
+
+<!--TABLA-->
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Fecha</th>
+            <th>Descripcion</th>
+            <th>Prioridad</th>
+        </tr>
+    </thead>
+        <tbody id="TareaTabla">        
+        </tbody>
+  </table>
+</div>
+
+ @section Scripts{
+    <script src="~/js/Tarea.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/sweetalert.js"></script>
+}
+
